@@ -1,5 +1,5 @@
 #
-#   PIN_assembly.py
+#   US2_PIN_assembly.py
 #   A test implementation of creating a secure PIN.
 #   By - Robert Maloy
 #   19 February 2020

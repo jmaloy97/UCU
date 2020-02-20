@@ -1,5 +1,5 @@
 #
-#   testcase_StringLength.py
+#   US2_testcase_StringLength.py
 #   A brief little script just to make sure that I know how to check the lengths of strings.
 #   By - Robert Maloy
 #   19 February 2020
