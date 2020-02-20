@@ -1,5 +1,7 @@
 # a .gitignore designed to ignore all macOS junk files.
 
+database.csv
+
 # General
 .DS_Store
 .AppleDouble
