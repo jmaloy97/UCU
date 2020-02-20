@@ -8,6 +8,7 @@
 ## Import libraries so we can extract data and write data
 import uuid
 import csv
+import hashlib
 
 ## Extract MAC Address using UUID
 var_MAC_addr = hex(uuid.getnode())
@@ -27,6 +28,10 @@ if(len(str(pin_int)) <= 4):
     pin_int = pin_int + '0'
 # print("assembled integer pin: "+str(pin_int)) -- debug statement
 
+pinHashed = hashlib.sha256(str(pin_int).encode())
+pinHashed = pinHashed.hexdigest()
+#print(pinHashed)
+
 # Write user data to database.csv.
 try:
     f = open('database.csv') #attempt to open CSV file as variable f
@@ -41,13 +46,13 @@ with open('database.csv', 'rt') as a: #open it again, this time to read it
     reader=csv.reader(a, delimiter=',', quotechar="'") #set parameters
     for row in reader: #for all rows in the reader
         for field in row: #for specific fields in that row
-            if field == str(pin_int): #if the field is equivalent to our PIN, that means we've already stuck it in there.
-                print("PIN already in database.") #indicate we're not creating a duplicate value.
+            if field == str(pinHashed): #if the field is equivalent to our PIN, that means we've already stuck it in there.
+                print("PIN already in database, exiting...") #indicate we're not creating a duplicate value.
                 exit() #kill this script
 
 #If the script has not been killed by the previous check, then proceed here.
 with open('database.csv', 'a', newline='') as csvfile: #Open file for appending
         dbWrite = csv.writer(csvfile, delimiter=',', quotechar="'", quoting=csv.QUOTE_ALL) #set parameters
-        dbWrite.writerow(['1']+['service'] + [pin_int]) #write the row for our pin and user
+        dbWrite.writerow(['1']+['service'] + [pinHashed]) #write the row for our pin and user
         print("Administrative user added.") #indicate we've successfully written the new user.
         exit() #terminate
