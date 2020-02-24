@@ -7,7 +7,11 @@ Any and all credit to this page's creation lay entirely on the creators, and not
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body {font-family: Arial, Helvetica, sans-serif;}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+  color: white;
+  }
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
@@ -38,7 +42,7 @@ button:hover {
 /* Extra styles for the cancel button */
 .cancelbtn {
   width: auto;
-  padding: 10px 18px;
+  padding: 12px 20px;
   background-color: #f44336;
 }
 
@@ -81,9 +85,10 @@ span.psw {
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
+  color:black;
   margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 50%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button (x) */
@@ -132,10 +137,10 @@ span.psw {
 </head>
 <body>
 
-<h1>UCU</h1>
+<h1>Settings</h1>
 
 <button onclick="window.location.href='index.html'" class="cancelbtn">Home</button><br>
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Admin Login</button>
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Admin Configuration Settings</button>
 
 <div id="id01" class="modal">
   
